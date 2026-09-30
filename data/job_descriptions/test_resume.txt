@@ -1,0 +1,27 @@
+Vishnu Ranjan M
+
+AI and Machine Learning Student
+
+Education:
+Bachelor of Engineering in Computer Science and Artificial Intelligence.
+
+Skills:
+Python
+Machine Learning
+Deep Learning
+Natural Language Processing
+Computer Vision
+Pandas
+NumPy
+Scikit-learn
+TensorFlow
+PyTorch
+
+Projects:
+Developed an AI-powered resume screening system using Python,
+machine learning and natural language processing.
+
+Developed machine learning models for data analysis and prediction.
+
+Experience:
+Worked on artificial intelligence and machine learning projects.

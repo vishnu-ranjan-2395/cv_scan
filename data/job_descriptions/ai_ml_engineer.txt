@@ -1,0 +1,45 @@
+AI/ML Engineer
+
+Job Description
+
+We are looking for an AI/ML Engineer to develop intelligent applications
+using machine learning and artificial intelligence.
+
+Required Skills
+
+Python
+Machine Learning
+Deep Learning
+Natural Language Processing
+Computer Vision
+Pandas
+NumPy
+Scikit-learn
+TensorFlow
+PyTorch
+
+Education
+
+Bachelor's degree in Computer Science, Artificial Intelligence,
+Machine Learning or a related field.
+
+Experience
+
+1+ years of experience in machine learning or artificial intelligence.
+
+Responsibilities
+
+Develop and deploy machine learning models.
+Process and analyze datasets.
+Build NLP and computer vision applications.
+Evaluate and improve model performance.
+Work with software development teams.
+
+Preferred Skills
+
+Generative AI
+RAG
+LLM
+FastAPI
+Docker
+AWS

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CV Scan - AI Recruiting</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+<!-- =========================
+     INTRO VIDEO
+========================== -->
+<div id="introVideoOverlay" class="intro-video-overlay">
+    <video
+        id="introVideo"
+        class="intro-video"
+        autoplay
+        muted
+        playsinline
+        preload="auto"
+    >
+        <source src="intro-video.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="app">
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <img
+                class="brand-logo"
+                src="brand-logo.png"
+                alt="CV Scan Brand Logo"
+            >
+
+            <div>
+
+                <h1>CV Scan</h1>
+
+                <span>
+                    AI RECRUITING
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <button
+                class="nav-item active"
+                data-section="candidates"
+            >
+                <span class="nav-icon">◉</span>
+                Candidates
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-section="pipeline"
+            >
+                <span class="nav-icon">▰</span>
+                Pipeline
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-section="analytics"
+            >
+                <span class="nav-icon">◒</span>
+                Analytics
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-section="jobs"
+            >
+                <span class="nav-icon">⌕</span>
+                Job Recommendations
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-section="history"
+            >
+                <span class="nav-icon">◷</span>
+                History
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-section="help"
+            >
+                <span class="nav-icon">?</span>
+                Help & Support
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <div class="ai-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+
+                    <strong>
+                        AI Engine
+                    </strong>
+
+                    <small>
+                        Online
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="page-label">
+                    AI RECRUITING
+                </span>
+
+                <h2 id="pageTitle">
+                    Candidate Screening
+                </h2>
+
+                <p id="pageSubtitle">
+                    Analyze resumes and identify
+                    the best matching candidates.
+                </p>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search candidates..."
+                    >
+                    <select id="statusFilter" class="status-filter">
+                        <option value="all">All Status</option>
+                        <option value="High Match">High Match</option>
+                        <option value="Reviewed">Reviewed</option>
+                        <option value="Screened">Screened</option>
+                    </select>
+
+                </div>
+
+
+                <button
+                    class="add-resume-btn"
+                    id="addResumeButton"
+                >
+                    + Add Resume
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================
+             DASHBOARD CONTENT
+        ========================== -->
+
+        <section
+            id="dashboardContent"
+            class="dashboard-content"
+        >
+
+
+            <!-- STAT CARDS -->
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ◉
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Candidates
+                        </span>
+
+                        <strong id="totalCandidates">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Screened
+                        </span>
+
+                        <strong id="screenedCandidates">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ★
+                    </div>
+
+                    <div>
+
+                        <span>
+                            High Match
+                        </span>
+
+                        <strong id="highMatchCandidates">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        %
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Average Match
+                        </span>
+
+                        <strong id="averageMatch">
+                            0%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CANDIDATE TABLE -->
+
+            <div class="content-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+                            Candidate Screening
+                        </h3>
+
+                        <p>
+                            AI-powered resume matching
+                            and candidate analysis.
+                        </p>
+
+                    </div>
+
+                    <div class="candidate-header-actions">
+
+                        <button
+                            class="compare-btn"
+                            id="compareCandidatesButton"
+                            type="button"
+                        >
+                            ⇄ Compare Candidates
+                        </button>
+
+                        <button
+                            class="secondary-btn"
+                            id="openUploadButton"
+                            type="button"
+                        >
+                            + Screen Candidate
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th class="select-cell">Select</th>
+
+                                <th>Candidate</th>
+
+                                <th>
+                                    Position
+                                </th>
+
+                                <th>
+                                    AI Match
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="candidateTableBody">
+
+                            <tr class="empty-row">
+
+                                <td
+                                    colspan="5"
+                                >
+
+                                    No candidates
+                                    screened yet.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 COMPARE CANDIDATES
+            ========================== -->
+
+            <section id="compareCandidates" class="compare-section hidden">
+                <div class="compare-header">
+                    <div>
+                        <span class="result-label">AI CANDIDATE COMPARISON</span>
+                        <h2>Compare Candidates</h2>
+                        <p>Compare AI screening scores and candidate details side by side.</p>
+                    </div>
+                    <button id="closeCompareButton" class="close-profile-btn" type="button">✕ Close</button>
+                </div>
+
+                <div id="compareMessage" class="compare-message">Select 2 to 5 candidates to compare.</div>
+
+                <div class="compare-table-container">
+                    <table class="compare-table">
+                        <thead id="compareTableHead"></thead>
+                        <tbody id="compareTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="comparison-insights">
+                    <h3>Candidate Comparison Insights</h3>
+                    <div id="comparisonInsights" class="comparison-insights-content">Select candidates to view their comparison details.</div>
+                </div>
+            </section>
+
+
+            <!-- =========================
+                 AI SCREENING RESULT
+            ========================== -->
+
+            <section
+                id="screeningResult"
+                class="screening-result hidden"
+            >   <div class="profile-action-buttons">
+                    <button
+                        id="deleteCandidateButton"
+                        class="delete-analysis-btn"
+                        type="button"
+                    >
+                        🗑 Delete Analysis
+                    </button>
+
+                    <button
+                        id="closeCandidateProfile"
+                        class="close-profile-btn"
+                        type="button"
+                    >
+                        ✕ Close
+                    </button>
+                </div>
+
+                <div class="result-header">
+
+
+                    <div>
+
+                        <span class="result-label">
+                            AI SCREENING RESULT
+                        </span>
+
+                        <h2
+                            id="resultCandidateName"
+                        >
+                            Candidate Name
+                        </h2>
+
+                        <p
+                            id="resultCandidateEmail"
+                        >
+                            candidate@email.com
+                        </p>
+
+                    </div>
+
+
+                    <div class="match-score-card">
+
+                        <span>
+                            AI MATCH
+                        </span>
+
+                        <strong
+                            id="resultFinalScore"
+                        >
+                            0%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="candidate-details">
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Phone
+                        </span>
+
+                        <strong
+                            id="resultCandidatePhone"
+                        >
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Position
+                        </span>
+
+                        <strong
+                            id="resultJobTitle"
+                        >
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SCORE BREAKDOWN -->
+
+                <div class="result-section">
+
+                    <h3>
+                        AI Score Breakdown
+                    </h3>
+
+
+                    <div class="score-row">
+
+                        <div class="score-info">
+
+                            <span>
+                                Semantic Match
+                            </span>
+
+                            <strong
+                                id="semanticScore"
+                            >
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="score-bar">
+
+                            <div
+                                id="semanticBar"
+                                class="score-fill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="score-row">
+
+                        <div class="score-info">
+
+                            <span>
+                                Skills Match
+                            </span>
+
+                            <strong
+                                id="skillScore"
+                            >
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="score-bar">
+
+                            <div
+                                id="skillBar"
+                                class="score-fill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="score-row">
+
+                        <div class="score-info">
+
+                            <span>
+                                Experience
+                            </span>
+
+                            <strong
+                                id="experienceScore"
+                            >
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="score-bar">
+
+                            <div
+                                id="experienceBar"
+                                class="score-fill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="score-row">
+
+                        <div class="score-info">
+
+                            <span>
+                                Education
+                            </span>
+
+                            <strong
+                                id="educationScore"
+                            >
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="score-bar">
+
+                            <div
+                                id="educationBar"
+                                class="score-fill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="score-row">
+
+                        <div class="score-info">
+
+                            <span>
+                                Projects
+                            </span>
+
+                            <strong
+                                id="projectScore"
+                            >
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="score-bar">
+
+                            <div
+                                id="projectBar"
+                                class="score-fill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DETECTED SKILLS -->
+
+                <div class="result-section">
+
+                    <h3>
+                        Detected Skills
+                    </h3>
+
+                    <div
+                        id="detectedSkills"
+                        class="skills-container"
+                    ></div>
+
+                </div>
+
+
+            </section>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================
+     UPLOAD MODAL
+========================== -->
+
+<div
+    id="uploadModal"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-label">
+                    AI SCREENING
+                </span>
+
+                <h2>
+                    Add Resume
+                </h2>
+
+                <p>
+                    Upload a resume and provide
+                    the target job description.
+                </p>
+
+            </div>
+
+
+            <button
+                class="close-modal"
+                onclick="closeUploadModal()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <!-- DROP ZONE -->
+
+        <div
+            id="dropZone"
+            class="drop-zone"
+        >
+
+            <div class="upload-icon">
+                ↑
+            </div>
+
+            <h3>
+                Drop your resume here
+            </h3>
+
+            <p>
+                or click to browse files
+            </p>
+
+            <small>
+                PDF, DOC, DOCX, JPG, JPEG, PNG
+            </small>
+
+            <input
+                type="file"
+                id="resumeInput"
+                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                hidden
+            >
+
+        </div>
+
+
+
+        <!-- JOB DESCRIPTION -->
+
+        <div class="job-description-box">
+
+            <label
+                for="jobDescription"
+            >
+                Job Description
+            </label>
+
+            <textarea
+                id="jobDescription"
+                rows="8"
+                placeholder="Paste the job description here..."
+            ></textarea>
+
+        </div>
+
+
+
+        <!-- ANALYZE -->
+
+        <button
+            class="analyze-btn"
+            id="analyzeButton"
+        >
+            Analyze Resume →
+        </button>
+
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
